@@ -17,23 +17,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2.2.4
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: "pnpm"
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install NPM Dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm run build
-
-      - name: Copy dist to server
-        run: cp -R dist server
+      - name: Build step
+        run: npm install && npm run build && cp -R dist server # 📝 Update the build command(s)
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
