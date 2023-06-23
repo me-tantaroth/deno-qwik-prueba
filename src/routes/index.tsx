@@ -7,10 +7,14 @@ import {
   Form,
 } from "@builder.io/qwik-city";
 
+export const NOMBRES: string[] = [];
+
 export const useSave = routeAction$(
   (data: { nombre: string }) => {
+    NOMBRES.push(data.nombre);
+
     return {
-      nuevoNombre: data.nombre,
+      nombres: NOMBRES,
     };
   },
   zod$({
@@ -31,6 +35,7 @@ export default component$(() => {
       </p>
 
       <pre>{JSON.stringify(action, null, 2)}</pre>
+      <pre>{JSON.stringify(NOMBRES, null, 2)}</pre>
 
       <Form action={action}>
         <input type="text" name="nombre" placeholder="Tu nombre" />
