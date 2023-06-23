@@ -25,4 +25,4 @@ jobs:
         with:
           project: "bad-rat-30"
           entrypoint: "/server/entry.deno.js" # 📝 Update the entrypoint
-          root: "."
+          root: "dist"
