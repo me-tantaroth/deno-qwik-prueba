@@ -6,8 +6,7 @@ import {
   z,
   Form,
 } from "@builder.io/qwik-city";
-
-export const NOMBRES: string[] = [];
+import { NOMBRES, useNombres } from "./layout";
 
 export const useSave = routeAction$(
   (data: { nombre: string }) => {
@@ -24,6 +23,7 @@ export const useSave = routeAction$(
 
 export default component$(() => {
   const action = useSave();
+  const list = useNombres();
 
   return (
     <>
@@ -35,7 +35,7 @@ export default component$(() => {
       </p>
 
       <pre>{JSON.stringify(action, null, 2)}</pre>
-      <pre>{JSON.stringify(NOMBRES, null, 2)}</pre>
+      <pre>{JSON.stringify(list.value, null, 2)}</pre>
 
       <Form action={action}>
         <input type="text" name="nombre" placeholder="Tu nombre" />
