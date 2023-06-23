@@ -24,5 +24,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "bad-rat-30"
-          entrypoint: "https://deno.land/std@0.188.0/http/file_server.ts" # 📝 Update the entrypoint
+          entrypoint: "server/entry.deno.js" # 📝 Update the entrypoint
           root: "dist"
