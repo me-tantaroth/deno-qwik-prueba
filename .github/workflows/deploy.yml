@@ -32,8 +32,8 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Move dist to server
-        run: mv dist server
+      - name: Copy dist to server
+        run: cp -R dist server
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
