@@ -1,4 +1,5 @@
 # Build
+/build
 /dist
 /lib
 /lib-types
